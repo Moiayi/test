@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail Page</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background-color: rgb(255, 126, 139);
+        color: white;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
+                     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        padding: 20px;
+    }
+    .container{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .product-detail{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+    .product-gallery{
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 10px;
+    }
+    .thumbnail{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-height: 450px;
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
+    .thumbnail img{
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: border-color 0.3s;
+    }
+    .main-product img{
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    .product-info h3 {
+        font-size: 26px;
+        margin-bottom: 15px;
+        color: rgb(180, 0, 57);
+    }
+    .product-info p {
+        line-height: 1.6;
+    }
+    .related{
+        margin-top: 30px;
+    }
+    .related h3{
+        border-left: 5px solid rgb(95, 0, 25);
+        padding-left: 15px;
+        margin-bottom: 20px;
+        color:  rgb(180, 0, 57);
+    }
+    .related-grid{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .related-card{
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+        transition: transform 0.3s;
+    }
+    .related-card:hover {
+        transform: translateY(-5px);
+    }
+    .related-card img{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .related-card p{
+        padding: 10px;
+    }
+    .related-card p:last-child {
+        color: rgb(255, 79, 15);
+        font-weight: bold;
+    }
+    
+    @media (max-width: 768px){
+        .container {
+            width: 95%;
+        }
+        .product-detail{
+            grid-template-columns: 1fr;
+        }
+        .product-gallery{
+            grid-template-columns: 1fr;
+        }
+        .thumbnail {
+            order: 2;
+            display: flex;
+            flex-direction: row;
+            max-height: 100px;
+            overflow-x: auto;
+            direction: ltr;
+            scrollbar-width: none;
+        }
+        .thumbnail img {
+            width: 80px;
+            height: 80px;
+
+        }
+        .main-product{
+            order: 1;
+        }
+        .related-grid{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 480px){
+        .related-grid{
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="product-detail">
+            <!-- -----left------ -->
+            <div class="product-gallery">
+                <div class="thumbnail">
+                    <img src="https://i.pinimg.com/1200x/e7/d1/10/e7d110be828c0ae2e55a20cd2b9e5865.jpg" alt="">
+                    <img src="https://i.pinimg.com/736x/15/c3/80/15c3808d390f304f01d499785dba7909.jpg" alt="">
+                    <img src="https://i.pinimg.com/736x/79/79/11/797911166cec8ca5fe95208c9b361a9c.jpg" alt="">
+                    <img src="https://i.pinimg.com/736x/e6/75/80/e6758060992880bbe1191e1607d29a62.jpg" alt="">
+                    <img src="https://i.pinimg.com/736x/92/07/e8/9207e8fae75e896152d970fb4b2f0b16.jpg" alt="">
+                    <img src="https://i.pinimg.com/736x/aa/e2/d4/aae2d41bcb7ec8889e445e92ee07452a.jpg" alt="">
+                </div>
+                <div class="main-product">
+                    <img src="https://i.pinimg.com/736x/21/fb/76/21fb7630ab2e9b9b04bb0e9a8d27cc16.jpg" alt="Main product image">
+                </div>
+            </div>
+            <!-- ------right------- -->
+             <div class="product-info">
+                <h3>Product Title</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero velit a nulla eveniet modi, provident eaque voluptatum voluptate quis. Doloribus.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+             </div>
+        </div>
+        <div class="related">
+            <h3>Related Products</h3>
+            <div class="related-grid">
+                <div class="related-card">
+                    <img src="https://i.pinimg.com/736x/53/06/f4/5306f42c77529f37160e150e67041783.jpg" alt="">
+                    <p>Product 1</p>
+                    <p>$10.99</p>
+                </div>
+                 <div class="related-card">
+                    <img src="https://i.pinimg.com/1200x/32/33/b1/3233b12ce4c2e3714bfd184d395ea7c5.jpg" alt="">
+                    <p>Product 1</p>
+                    <p>$10.99</p>
+                </div>
+                 <div class="related-card">
+                    <img src="https://i.pinimg.com/1200x/de/1f/46/de1f4692ec57f9cb375a5420bc8696f1.jpg" alt="">
+                    <p>Product 1</p>
+                    <p>$10.99</p>
+                </div>
+                 <div class="related-card">
+                    <img src="https://i.pinimg.com/736x/cd/64/71/cd64715b1ae2bd75f833f9e2dde28087.jpg212222" alt="">
+                    <p>Product 1</p>
+                    <p>$10.99</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const thumbnails = document.querySelectorAll('.thumbnail img');
+            const mainImage = document.querySelector('.main-product img');
+            
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    mainImage.src = this.src;
+                });
+            });
+        });
+    </script> -->
+</body>
+</html>
